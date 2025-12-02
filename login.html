@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PizzaFast - Iniciar Sesión</title>
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #b30000, #660000);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .login-box {
+            background: rgba(0,0,0,0.55);
+            padding: 45px;
+            border-radius: 15px;
+            width: 360px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        .login-box img {
+            width: 130px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0px 0px 3px rgba(255,255,255,0.4));
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 45px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            font-size: 15px;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff1c1c;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 17px;
+            margin-top: 12px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d90000;
+            transform: scale(1.05);
+        }
+
+        #switchMode {
+            margin-top: 15px;
+            color: #fff;
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+        #errorMensaje {
+            margin-top: 12px;
+            color: #ffdddd;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="login-box">
+
+        <img src="Logo123.jpg" alt="Logo PizzaFast">
+
+        <h1 id="titulo">PIZZAFast</h1>
+
+        <form id="loginForm">
+            <input type="text" id="usuario" placeholder="Usuario" required>
+            <input type="password" id="contrasena" placeholder="Contraseña" required>
+            <button type="submit" id="btnAccion">Ingresar</button>
+            <p id="errorMensaje"></p>
+        </form>
+
+        <p id="switchMode">¿No tienes cuenta? Regístrate</p>
+
+    </div>
+
+    <script>
+        let modo = "login"; 
+
+        const titulo = document.getElementById("titulo");
+        const btnAccion = document.getElementById("btnAccion");
+        const switchMode = document.getElementById("switchMode");
+        const errorMensaje = document.getElementById("errorMensaje");
+        const form = document.getElementById("loginForm");
+
+    
+        switchMode.addEventListener("click", () => {
+            if (modo === "login") {
+                modo = "registro";
+                titulo.textContent = "Registro";
+                btnAccion.textContent = "Registrar";
+                switchMode.textContent = "¿Ya tienes cuenta? Inicia sesión";
+                errorMensaje.textContent = "";
+            } else {
+                modo = "login";
+                titulo.textContent = "PIZZAFast";
+                btnAccion.textContent = "Ingresar";
+                switchMode.textContent = "¿No tienes cuenta? Regístrate";
+                errorMensaje.textContent = "";
+            }
+        });
+
+    
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const usuario = document.getElementById("usuario").value.trim();
+            const contrasena = document.getElementById("contrasena").value.trim();
+
+            if (modo === "registro") {
+                
+                localStorage.setItem("usuario", usuario);
+                localStorage.setItem("contrasena", contrasena);
+
+                errorMensaje.style.color = "#b3ffb3";
+                errorMensaje.textContent = "Registro exitoso ✔ Ahora inicia sesión";
+
+                
+                modo = "login";
+                titulo.textContent = "PIZZAFast";
+                btnAccion.textContent = "Ingresar";
+                switchMode.textContent = "¿No tienes cuenta? Regístrate";
+
+            } else {
+                const userValido = localStorage.getItem("usuario");
+                const passValida = localStorage.getItem("contrasena");
+
+                if (usuario === userValido && contrasena === passValida) {
+                    window.location.href = "index.html";
+                } else {
+                    errorMensaje.style.color = "#ffdddd";
+                    errorMensaje.textContent = "Usuario o contraseña incorrectos.";
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

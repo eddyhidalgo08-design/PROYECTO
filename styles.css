@@ -1,0 +1,213 @@
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: #b30000;
+    color: #fff;
+}
+
+h1, h2, h3 {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+
+header {
+    background: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+}
+
+nav a {
+    color: #b30000;
+    text-decoration: none;
+    font-weight: 900;
+}
+
+
+#cart-icon {
+    font-size: 28px;
+    color: #b30000;
+    cursor: pointer;
+    position: relative;
+}
+
+#cart-count {
+    background: #b30000;
+    color: white;
+    padding: 2px 7px;
+    border-radius: 50%;
+    font-size: 12px;
+    position: absolute;
+    top: -8px;
+    right: -10px;
+}
+
+
+#cart-box {
+    position: fixed;
+    right: 20px;
+    top: 95px;
+    background: white;
+    width: 260px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    color: #b30000;
+    z-index: 200;
+}
+
+#cart-box.hidden {
+    display: none;
+}
+
+#cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+#cart-items li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+#clear-cart {
+    width: 100%;
+    padding: 10px;
+    background: #b30000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+section {
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.producto {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 350px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.producto:hover {
+    transform: scale(1.03);
+}
+
+.btn {
+    background: #fff;
+    color: #b30000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+.sucursal {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.map-link {
+    color: white;
+    text-decoration: none;
+}
+
+
+footer {
+    background: #111;
+    text-align: center;
+    padding: 25px;
+    color: #ccc;
+}
+
+.login-body {
+    background: #ffe6e6;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    padding: 80px 20px;
+}
+
+.login-card {
+    background: white;
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    animation: aparecer 0.6s ease;
+}
+
+.login-card h2 {
+    text-align: center;
+    color: #c70000;
+    margin-bottom: 25px;
+}
+
+.login-card label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.login-card input:focus {
+    border-color: #c70000;
+    outline: none;
+}
+
+.login-card .btn {
+    width: 100%;
+    padding: 12px;
+    background: #c70000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-card .btn:hover {
+    background: #a50000;
+}
+
+.login-note {
+    margin-top: 15px;
+    text-align: center;
+}
